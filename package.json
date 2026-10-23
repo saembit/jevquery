@@ -1,0 +1,83 @@
+{
+	"name": "jevquery",
+	"version": "0.1.0",
+	"description": "A sentence becomes a typed query plan that Drizzle or Prisma runs. Jev picks the table, the filter and the columns from what your schema offers, code builds the query, no model ever writes SQL.",
+	"license": "MIT",
+	"author": {
+		"name": "Austin Choi",
+		"email": "austinch20@protonmail.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/saembit/jevquery.git"
+	},
+	"homepage": "https://github.com/saembit/jevquery",
+	"keywords": [
+		"jev",
+		"typesafe",
+		"query",
+		"sql",
+		"drizzle",
+		"prisma",
+		"trpc",
+		"zod",
+		"standard-schema",
+		"natural-language"
+	],
+	"type": "module",
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs"
+		},
+		"./drizzle": {
+			"types": "./dist/adapters/drizzle.d.ts",
+			"import": "./dist/adapters/drizzle.js",
+			"require": "./dist/adapters/drizzle.cjs"
+		},
+		"./prisma": {
+			"types": "./dist/adapters/prisma.d.ts",
+			"import": "./dist/adapters/prisma.js",
+			"require": "./dist/adapters/prisma.cjs"
+		}
+	},
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "tsup",
+		"test": "vitest run",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@standard-schema/spec": "^1.1.0"
+	},
+	"peerDependencies": {
+		"drizzle-orm": ">=0.30"
+	},
+	"peerDependenciesMeta": {
+		"drizzle-orm": {
+			"optional": true
+		}
+	},
+	"devDependencies": {
+		"@types/better-sqlite3": "^7.6.0",
+		"@types/node": "^22.0.0",
+		"better-sqlite3": "^12.0.0",
+		"drizzle-orm": "^0.45.4",
+		"tsup": "^8.5.0",
+		"typescript": "^5.9.3",
+		"vitest": "^3.2.4",
+		"zod": "^4.0.0"
+	},
+	"engines": {
+		"node": ">=20"
+	},
+	"allowScripts": {
+		"better-sqlite3@12.11.1": true
+	}
+}
